@@ -1,0 +1,95 @@
+/* user-list.component.css */
+
+.user-list-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .user-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .username {
+    color: #333333;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .user-info {
+    color: #666666;
+  }
+  
+  .status-and-save {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .status-checkbox {
+    margin-top: 5px;
+  }
+  
+  .save-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+  }
+  
+  .save-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* user-list.component.css */
+
+.user-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2196F3; /* You can adjust the background color as needed */
+    color: white;
+  }
+  
+  .user-list-header h1 {
+    margin: 0;
+  }
+  
+/* user-list.component.css */
+
+.logout-button {
+    margin-left: auto;
+    background-color: #FF5252; /* Red color, you can change it */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .logout-button:hover {
+    background-color: #FF0000; /* Darker red on hover, you can change it */
+  }
+  
+  
