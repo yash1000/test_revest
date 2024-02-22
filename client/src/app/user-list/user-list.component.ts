@@ -42,7 +42,6 @@ export class UserListComponent {
     this.userService.updateUserStatus(user.id, { status: user.status }).subscribe(
       (response) => {
         console.log(response);
-        
         this.snackBar.open('Updated successfully!', 'Close', {
           duration: 3000,
         });
