@@ -6,15 +6,20 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { LoginAuthGuard } from '../guards/login-auth.guard';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
+  providers: [
+    LoginAuthGuard,
+  ],
   imports: [
     MatCardModule,
     MatFormFieldModule,
@@ -22,6 +27,7 @@ import { Router } from '@angular/router';
     ReactiveFormsModule,
     MatInputModule,
     HttpClientModule,
+    MatSnackBarModule,
     MatButtonModule,
   ],
 })
@@ -29,7 +35,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -52,6 +58,9 @@ export class LoginComponent implements OnInit {
           },
           error: (error) => {
             console.error('Login error:', error);
+            this.snackBar.open('Login failed. Please check your credentials.', 'Close', {
+              duration: 3000,
+            });
           },
         });
     }

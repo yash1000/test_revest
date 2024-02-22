@@ -7,6 +7,7 @@ import { UserService } from './user.service';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from '../guards/auth.guard';
 import { Router } from '@angular/router';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-list',
@@ -18,6 +19,7 @@ import { Router } from '@angular/router';
   imports: [
     MatListModule,
     CommonModule,
+    MatSnackBarModule,
     FormsModule,
     HttpClientModule,
     MatCheckboxModule
@@ -27,7 +29,7 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent {
   users: any[] = [];
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router, private snackBar: MatSnackBar) {}
 
   ngOnInit() {
     const jwtToken = localStorage.getItem('jwtToken') || '';
@@ -38,7 +40,13 @@ export class UserListComponent {
   }
   saveUser(user: any) {
     this.userService.updateUserStatus(user.id, { status: user.status }).subscribe(
-      response => console.log('User updated successfully:', response),
+      (response) => {
+        console.log(response);
+        
+        this.snackBar.open('Updated successfully!', 'Close', {
+          duration: 3000,
+        });
+      },
       error => console.error('Error updating user:', error)
     );
   }

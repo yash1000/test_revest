@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class LoginAuthGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(
@@ -21,9 +21,11 @@ export class AuthGuard implements CanActivate {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (jwtToken) {
-      return true;
+      // Token exists, redirect to 'user-list'
+      return this.router.createUrlTree(['/user-list']);
     } else {
-      return this.router.createUrlTree(['/login']);
+      // No token, allow access to the route
+      return true;
     }
   }
 }
