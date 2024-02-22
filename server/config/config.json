@@ -1,0 +1,36 @@
+{
+    "development": {
+      "username": "postgres",
+      "password": "Yash@1000",
+      "database": "test_revest",
+      "host": "127.0.0.1",
+      "dialect": "postgres",
+      "migrationStorage": "sequelize",
+      "migrationStoragePath": "sequelize-meta", 
+      "migrationStorageTableName": "sequelize_meta", 
+      "migrationsDir": "migrations" 
+    },
+    "test": {
+        "username": "postgres",
+        "password": "Yash@1000",
+        "database": "test_revest",
+        "host": "127.0.0.1",
+        "dialect": "postgres",
+        "migrationStorage": "sequelize",
+        "migrationStoragePath": "sequelize-meta",
+        "migrationStorageTableName": "sequelize_meta",
+        "migrationsDir": "migrations"
+    },
+    "production": {
+        "username": "postgres",
+        "password": "Yash@1000",
+        "database": "test_revest",
+        "host": "127.0.0.1",
+        "dialect": "postgres",
+        "migrationStorage": "sequelize",
+        "migrationStoragePath": "sequelize-meta",
+        "migrationStorageTableName": "sequelize_meta",
+        "migrationsDir": "migrations"
+    }
+  }
+  
